@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Contact Cards">
+  <title>Contact Page</title>
+  <style>
+    .user {width:300px;
+      text-align:left;
+      padding:0px;
+      }
+    .user p{display:inline-block;}
+    .user form{display:inline-block;}
+    #input{
+      width:40%;
+      display:inline-block;
+    }
+    #user_info{
+      display:inline-block;
+      width:49%;
+      vertical-align: top;
+    }
+    .user{
+      width:80%;
+      height:25%;
+      display:inline-block;
+      border:1px solid black;
+      padding:10px;
+      margin:10px;
+    }
+    .user h3{
+      display:none;
+    }
+    .user p:not(:first-of-type){
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div id="input">
+  <form class="contact">
+    <fieldset><legend>Contact information</legend>
+    <p>First Name:</p><input id='fname' type="text" name="first_name" placeholder='First Name'>
+    <br><p>Last Name:</p><input id='lname' type="text" name="last_name" placeholder="Last Name">
+    <br><p>Description:</p><br><textarea name='desc' placeholder="A short description." rows="4" cols="40"></textarea>
+    <br><input type="submit" name="Add User">
+  </fieldset>
+  </form>
+  </div>
+  <div id="user_info">
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>$(document).ready(function(){
+  //comment these out once done debugging.
+    // $('#fname').val('Guy');
+    // $('#lname').val('Man');
+    // $('textarea').val('Things');
+  //^^^^^
+    function swap(_this) {
+      $(_this).toggle();
+      $(_this).siblings().toggle();
+    }
+    $('#user_info').on('click', 'p', function(){
+      var _this=this;
+      swap(_this);
+    });
+    $('.contact').submit(function(){
+      var name=$('#fname').val();
+      var lname=$('#lname').val();
+      var desc=$('textarea').val();
+      $('.contact input:not(:last-of-type), textarea').val('');
+      $('#user_info').append('<div class="user"><h2>'+name+' '+lname+'</h2><br><p>Click for description</p><h3>'+desc+'</h3><br><p>Click to go back</p>');
+      return false;
+    });
+    });</script>
+</body>
