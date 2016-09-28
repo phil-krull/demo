@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: arial;
+}
+.container{
+  width: 800px;;
+  margin: 0 auto;
+  padding: 50px;
+  border: 1px solid black;
+}
+form{
+  width: 250px;
+  line-height: 50px;
+  display: inline-block;
+}
+#btnSubmit {
+width: 100px;
+height: 30px;
+}
+#description {
+  width: 242px;
+  height: 100px;
+}
+#firstName, #lastName {
+width: 150px;
+line-height: 30px;
+margin-left: 10px;
+}
+.cardWrapper{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 100px;
+}
+.card {
+  width: 400px;
+  height: 100px;
+  border: 1px solid black;
+  text-align: center;
+  margin-bottom: 10px;
+}
+h2{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,54 @@
+#container {
+    padding: 5px;
+}
+
+.cards {
+    margin-right: 20px;
+    float: right;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.cards div {
+    width: 250px;
+    height: 65px;
+    border: 1px solid black;
+    margin: 5px 0px;
+}
+
+.cards aside {
+    display: none;
+    width: 240px;
+    height: 55px;
+    padding: 5px 5px
+}
+
+.cards p, .cards h6 {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    margin: 5px 0px;
+}
+
+.cards p {
+    font-size: 26px;
+}
+
+.adduser_form {
+    width: 300px;
+    text-align: left;
+    display: inline-block;
+}
+
+.adduser_form input {
+    border: 2px solid lightgrey;
+    float: right;
+}
+
+.adduser_form input[type=submit] {
+    float: none;
+}
+
+.adduser_form textarea {
+    width: 294px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang= "en">
+  <head>
+    <link rel="stylesheet" href="index.css" media="screen" title="no title">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="left">
+      <form class="" action="index.html" method="post">
+        First Name: <input type="text" id="first_name" value=""placeholder="First Name">
+         Last Name:  <input type="text" id="last_name" value=""placeholder="Last Name">
+        <h3>Description</h3>
+        <textarea id="description" rows="5" cols="40" placeholder="Enter Descriptiton"></textarea>
+        <input type="submit" id="submit" value="Add_User">
+      </form>
+    </div>
+    <div id="right">
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("form").submit(function(){
+        $("#right").append("<div><h2>"+$("#first_name").val()+" "+ $("#last_name").val()+"</h2>"+"<h4>Click here for description</h4>"+"<p style='display:none'>"+$('#description').val()+"</div>")
+        return false;
+      });
+      $(document).on('click', '#right div',function(){
+        $(this).find('h2').toggle();$(this).find('h4').toggle();$(this).find('p').toggle();
+      });
+
+    });
+
+    </script>
+  </body>
+</html>
