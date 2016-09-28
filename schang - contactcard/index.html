@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Add User</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var count = 0
+        $("form").submit(function(event){
+          var one = $("#first").val();
+          var two = $("#last").val();
+          var three = $("#text").val();
+          var desc = "Click for description!";
+
+          $("body").append('<div id="' + count + '"><h1>' + one + " " +two + '</h1><h2>' + desc + '</h2><p>' + three + '</p></div>');
+          event.stopPropagation();
+          $("#"+count+" p").hide();
+          count+=1;
+          return false
+        });
+
+        $(document).on("click","div",function(){
+          $(this).children("p").show();
+          $(this).children("h1, h2").hide();
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <form action="action_page.php">
+      <p>First name: <input id="first" type="text" name="first"></p>
+      <p>Last name: <input id="last" type="text" name="last"></p>
+      <br>
+      <p>Description:</p>
+      <textarea id="text" rows="5" cols="31"></textarea>
+      <input type="submit" value="Submit">
+    </form>
+    <!--<div><div id="name + count"><h1>name</h1><h2>Click for description!</h2></div><p></p></div>-->
+  </body>
+</html>
