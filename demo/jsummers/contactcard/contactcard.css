@@ -18,8 +18,9 @@
 
 .cards aside {
     display: none;
-    width: 100%;
-    margin: 5px 5px
+    width: 240px;
+    height: 55px;
+    padding: 5px 5px
 }
 
 .cards p, .cards h6 {
