@@ -1,0 +1,38 @@
+*{
+ margin: 0px;
+ padding: 0px;
+ font-family:sans-serif;
+ font-size:16px;
+}
+
+body{
+  padding:25px;
+}
+
+form{
+  display:inline-block;
+  vertical-align:top;
+}
+
+textarea{
+  display:block;
+}
+
+li{
+  display:inline-block;
+  width:150px;
+}
+
+div{
+  clear:both;
+  float:right;
+  margin-bottom:10px;
+  border:1px solid black;
+  height:200px;
+  width:500px;
+  text-align: center;
+}
+
+h1{
+  font-size:20px;
+}
