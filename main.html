@@ -1,12 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Terminal/Git/Github Demo</title>
+    <title>Contact Card</title>
+    <link rel="stylesheet" href="main.css" media="screen" title="no title">
+    <link rel="stylesheet" href="flexslider.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
+
   </head>
   <body>
-    <p>
-      This page should include the Disappearing Ninja assignment.  You should add the html and css first then commit. Then add the jQuery and commit again.
-    </p>
-  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="jquery.fittext.js"></script>
+  <script src="jquery.flexslider.js"></script>
+  <script>
+
+
+$(document).ready(function(){
+
+$('form').submit(function(event){
+    var data = $('form').serializeArray();
+    var firstname =   (data[0].value)
+    var lastname =    (data[1].value)
+    var description = (data[2].value)
+
+    $('#cards').append('<div class="ui card"><a class="image" href="#"><img src="thomas.jpg"></a><div class="content"><a class="header" href="#"><span class="name">'+firstname + lastname+'</span></a><div class="meta"><a>Last seen 1 second ago</a><div><p class="description">'+description+'</p></div></div></div><div id="readmore" class="ui bottom attached teal button"><i class="angle double down icon"></i><i>Description</div></div>')
+          event.preventDefault();
+  });
+                $(document).on('click', '#cards', function() {
+                  $(this).find('p').removeClass('description');
+                  $(this).find('.name').addClass('description')
+                });
+            		$("h1").fitText(3.2);
+            });
+
+
+</script>
+
+<div id="wrapper">
+  <h1>Contact Card</h1>
+
+
+  <div id="form">
+  <form class="ui form">
+    <div class="field">
+      <label>First Name</label>
+      <input type="text" name="first-name" placeholder="First Name">
+    </div>
+    <div class="field">
+      <label>Last Name</label>
+      <input type="text" name="last-name" placeholder="Last Name">
+    </div>
+    <div class="ui form">
+  <div class="field">
+    <label>Description</label>
+    <textarea name="description"></textarea>
+  </div>
+    <button class="positive ui button" type="sumit">Submit</button>
+  </form>
+  </div>
+
+        <div id="cards" class="ui centered fluid cards">
+        </div>
+
+
+</div>
+
+
+
+</body>
 </html>
