@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Terminal/Git/Github Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="ContactCard.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <style>
+        #left_main{
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #right_main{
+            display: inline-block;
+            width: 300px;
+            vertical-align: top;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        #description {
+            width: 225px;
+            height: 150px;
+    }
+
+    li {
+        border: 1px solid black;
+        list-style-type: none;
+        vertical-align: top;
+        width: 350px;
+        height: 150px;
+        text-align:center;
+    }
+</style>
   </head>
   <body>
-    <p>
-      This page should include the Disappearing Ninja assignment.  You should add the html and css first then commit. Then add the jQuery and commit again.
-    </p>
+      <div id="left_main">
+          <form>
+              First Name:<input id="firstname" type='text' name='first_name' placeholder='First Name'>
+              <br>
+              Last Name:<input id="lastname" type='text' name='last_name' placeholder='Last Name'>
+              <br>
+              Description:
+              <br>
+              <input id="description" type='text' name='description' placeholder='Enter Description'>
+              <br>
+              <input type="submit" value="Submit">
+
+          </form>
+      </div>
+      <div id="right_main">
+          <ul class='list'>
+
+          </ul>
+      </div>
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+          $('form').submit(function() {
+              var firstname = $('#firstname').val();
+              var lastname = $('#lastname').val();
+              var description = $('#description').val();
+              $('.list').append("<li><h5>"+firstname+"  "+lastname+" </h5><h6>Click for Description</h6><p class='hidden'>"+description+"</p></li>");
+              return false;
+          });
+          $(document).on('click', 'li', function(){
+               $(this).find('h5').addClass('hidden');
+               $(this).find('h6').addClass('hidden');
+               $(this).find('p').removeClass('hidden');
+          })
+      });
+  </script>
   </body>
 </html>
