@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Contact Card Assignment</title>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="contactcard.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("form").submit(function() {
+                //assign the variables
+                var firstname = $(this[name = "firstname"]).val();
+                var lastname = $(this[name = "lastname"]).val();
+                var fullname = firstname + " " + lastname;
+                var description = $(this[name = "description"]).val();
+                var clickdesc = "<h6>Click for Description!</h6>";
+                //compile the card pairing of P, H6, and aside tags
+                var cardcontent = "<p>" + fullname + "</p>" + clickdesc + "<aside>" + description + "</aside>";
+                //wrap it all in a box
+                var card = "<div>" + cardcontent + "</div>";
+                console.log(card);
+                //update the cards box
+                $(".cards").append(card);
+                //ensure the submit doesn't try and pass to the action
+                return false;
+            });
+            //enable document on for the dynamic content in the cards box
+            $(document).on("click", ".cards h6,.cards p", function() {
+                //fadeout the p and h6 tags. Once complete, do a fadein of the aside
+                $(this).parent().children("p, h6").stop().fadeOut(600, function() {
+                    $(this).parent().children("aside").fadeIn(600)
+                });
+            });
+            $(document).on("click", ".cards aside", function() {
+                //fadeout the aside tag. Once complete, do a fadein of the p and h6 tags
+                $(this).parent().children("aside").stop().fadeOut(600, function() {
+                    $(this).parent().children("p, h6").fadeIn(600)
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!--Container block-->
+    <div id="container">
+        <!--Add user form box -->
+        <div class="adduser_form">
+            <form action="adduser.php" method="post">
+                <p>First Name:<input name="firstname" type="text" /></p>
+                <p>Last Name:<input name="lastname" type="text" /></p>
+                <p>Description:</p>
+                <p><textarea name="description" rows="4" placeholder="Enter Description"></textarea></p>
+                <input type="submit" value="Add User" />
+            </form>
+        </div>
+        <!--This is the box for the contact cards-->
+        <div class="cards">
+        </div>
+    </div>
+</body>
+
+</html>
