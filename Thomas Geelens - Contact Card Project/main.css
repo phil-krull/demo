@@ -1,0 +1,48 @@
+#wrapper {
+  margin: 30px auto;
+  max-width: 1000px;
+  font-family: verdana;
+  width: auto;
+  background-color: white;
+  box-shadow: 0 16px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  height: 460px;
+  color: black;
+  border: 1px solid #00a3cc;
+}
+
+#wrapper h1 {
+  text-align: center;
+    color: #73C4B8;
+}
+
+
+
+#form {
+    margin: 20px 20px 20px 333px;
+      margin: 20px 20px 20px 333px;
+    width: 360px;
+    height: 200px;
+}
+
+#button {
+  margin: 20px 20px 20px 426px;
+}
+
+#cards {
+  margin: 40px 40px 40px -330px;
+  vertical-align: top;
+  width: 1000px;
+}
+
+#card {
+    display: inline-block;
+}
+
+.line {
+  display: inline-block;
+}
+
+.description {
+  display: none;
+}
