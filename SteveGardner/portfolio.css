@@ -1,0 +1,30 @@
+html{
+  width: 700px;
+  height: 700px;
+  display: block;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+  display: block;
+}
+ol, ul {
+  font-family: fantasy;
+  list-style-type: none;
+}
+
+img{
+  height: 200px;
+  width: 330px;
+  margin: auto;
+}
+nav{
+  display: block;
+  display: list-item;
+}
+button{
+  display: grid;
+p{
+  display: block;
+}
