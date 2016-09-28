@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("form").submit(function() {
+
+      $("#right_column").append("<div class='card'><h1>" + $("#fName").val() + " " + $("#lName").val() +"</h1>" + "<h3 >Click for description! </h3><h2>" + $("#description").val() + "</h2></div>")
+      $("#fName, #lName").val("")
+      $("#description").val("Enter Description")
+      return false;
+    })
+    $(document).on("click", "h1, h3", function() {
+      $(this).toggle();
+      $(this).siblings("h1, h3").toggle();
+      $(this).siblings("h2").toggle();
+    })
+    $(document).on("click", "h2", function () {
+      $(this).toggle();
+      $(this).siblings().toggle();
+
+    })
+  })
+  $(document).on('hover', function() {
+    $(".card:h1").click(function() {
+      console.log("hi");
+    })
+  })
+  </script>
+  <div id="wrapper">
+    <div id="left_column">
+      <form action="index.html">
+        First Name: <input type="text" id="fName">
+        Last Name: <input type="text" id="lName">
+        Description:
+        <input type="text" id="description" value="Enter Description">
+      <input type="submit" name="name" value="Add User">
+      </form>
+    </div>
+    <div id="right_column">
+
+    </div>
+  </div>
+</body>
+</html>
