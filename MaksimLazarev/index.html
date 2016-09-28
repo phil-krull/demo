@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Card</title>
+    <link rel="stylesheet" href="main.css" media="screen" title="no title">
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('#btnSubmit').click(function(){
+        console.log($('#description').val());
+        $(".cardWrapper").append('<div class="card" altData="'+$('#description').val()
+        +'"><h2>'+$('#firstName').val()+' '+$('#lastName').val()
+        +'</h2><h4>Click for description!</h4></div>');
+      });
+      $(document).on('click', '.card', function(){
+          $(this).attr("altData",[$(this).html(),$(this).html($(this).attr("altData"))][0]);
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <form class="" action="index.html" method="post">
+        <label for="firstName">First Name:</label><input  id="firstName" type="text" name="firstName" value="First Name"><br>
+        <label for="lastName">Last Name:</label><input id="lastName" type="text" name="lastName" value="Last Name"><br><br>
+        <label for="description">Description:</label><br>
+        <input id="description" type="text" name="description" value="Enter description:"><br><br>
+        <input id="btnSubmit" type="button" name="btnSubmit" value="Add User">
+      </form>
+        <div class="cardWrapper"></div>
+    </div>
+  </body>
+</html>
