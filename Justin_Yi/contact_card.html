@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8" lang = "en">
+       <title>The Codingdojo contact page</title>
+       <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+       <script type="text/javascript">
+
+          $(document).ready(function(){
+            $("form").submit(function(){
+              var description = $("#description").val();
+              $(".output").append("<li><h5>"
+                      + $("#first_name").val()
+                      + $("#last_name").val()
+                      + ("<h4> Click for Description!</h4>") + "</h5><p class = 'hidden'>"
+                       + description + "<br>" + "</p></li>")
+                      return false;
+            });
+
+            $(document).on("click","li",function(){
+              $(this).find("h5").addClass("hidden").toggle();
+              $(this).find("p").removeClass("hidden").toggle();
+              $(this).find("h4").addClass("hidden").toggle();
+
+            });
+          });
+      </script>
+      <style type="text/css">
+
+      *{
+        font-family: "Verdana"
+      }
+        body {
+          width:700px;
+        }
+
+        input #first_name{
+          display: inline-block;
+          vertical-align:top;
+          width:100px;
+        }
+
+        form {
+          display: inline-block;
+          vertical-align:top;
+          width: 300px;
+        }
+        div{
+          width:300px;
+          height:300px;
+          display:inline-block;
+        }
+        #description {
+          width:300px;
+          height:150px;
+        }
+
+         li{
+          border: 1px solid black;
+          list-style: none;
+          margin-top:5px;
+          text-align:center;
+          height: 100px;
+        }
+
+        .hidden {
+          display:none;
+        }
+
+
+
+      </style>
+   </head>
+   <body>
+     <form>
+       <label> First Name:<input class = "text_input" type = "text" id = "first_name" placeholder = "First Name"><br></label>
+       <label> Last  Name:<input class = "text_input" type = "text" id = "last_name" placeholder = "Last Name"><br></label>
+       <label> Description: <textarea id = "description" rows = "5" cols = "30"></textarea></label>
+       <input type = "submit" value = "Add User">
+     </form>
+     <div>
+       <ul class = "output">
+       </ul>
+     </div>
+   </body>
+</html>
